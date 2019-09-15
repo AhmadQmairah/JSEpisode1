@@ -1,11 +1,14 @@
-/**
- * greet(name):
+/* greet(name):
  * - optionally receives a name
  * - logs "Hello" if there is no name
  * - logs "Hello <name>" if there is a name
  */
 function greet(name) {
-  // Your code here
+  if (name == null) {
+    console.log("Hello");
+  } else {
+    console.log("Hello " + name);
+  }
 }
 
 /**
@@ -14,7 +17,9 @@ function greet(name) {
  * - returns true if it's odd, false otherwise
  */
 function isOdd(n) {
-  // Your code here
+  if (n % 2 === 0) return false;
+
+  return true;
 }
 
 /**
@@ -29,7 +34,7 @@ function isOdd(n) {
  * Hint: you can solve this without writing any loops!
  */
 function oddsSmallerThan(n) {
-  // Your code here
+  return parseInt(n / 2);
 }
 
 /**
@@ -43,7 +48,9 @@ function oddsSmallerThan(n) {
  * squareOrDouble(9) -> 81
  */
 function squareOrDouble(n) {
-  // Your code here
+  if (n % 2 === 0) return n * 2;
+
+  return n ** 2;
 }
 
 /**
@@ -64,6 +71,16 @@ function squareOrDouble(n) {
  */
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
+  let year = birthDate.toString().slice(0, 4);
+  let month = birthDate.toString().slice(4, 6);
+  let day = birthDate.toString().slice(6, 8);
+  let stringdate =
+    year.toString() + "-" + month.toString() + "-" + day.toString();
+
+  var d = new Date(stringdate);
+  test = Date.now() - d.getTime();
+
+  return Math.floor(test / _MS_PER_YEAR);
 
   // Your code here
 }
